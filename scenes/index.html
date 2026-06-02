@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lucca</title>
+
+    <script src="../scripts/sprintelucca1.js"></script>
+    <script src="../scripts/animacao.js"></script>
+    <script src="../scripts/teclado.js"></script>
+    <script src="../scripts/lucca.js"></script>
+</head>
+
+<body>
+
+<canvas id="canvas_lucca" width="1600" height="900"></canvas>
+
+<script>
+
+var canvas = document.getElementById("canvas_lucca");
+var context = canvas.getContext("2d");
+
+var teclado = new Teclado(document);
+var animacao = new Animacao(context);
+
+var imgLucca1 = new Image();
+imgLucca1.src = "../img/personagem/lucca1.png";
+
+var imgLucca2 = new Image();
+imgLucca2.src = "../img/personagem/lucca2.png";
+
+var carregadas = 0;
+
+function iniciar() {
+
+    carregadas++;
+
+    if (carregadas == 2) {
+
+        var lucca = new Lucca(
+            context,
+            teclado,
+            imgLucca1,
+            imgLucca2
+        );
+
+        lucca.x = 300;
+        lucca.y = 250;
+
+        animacao.novoSprite(lucca);
+        animacao.ligar();
+    }
+}
+
+imgLucca1.onload = iniciar;
+imgLucca2.onload = iniciar;
+
+</script>
+
+</body>
+</html>

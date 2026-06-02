@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clipping Lucca</title>
+</head>
+
+<body>
+
+    <canvas id="canvas_clipping" width="500" height="500"></canvas>
+
+    <script>
+
+        var context =
+            document.getElementById('canvas_clipping')
+            .getContext('2d');
+
+        // PRIMEIRA SPRITE
+        var imgLucca1 = new Image();
+        imgLucca1.src = 'lucca1.png';
+
+        imgLucca1.onload = function() {
+
+            var linhas = 3;
+            var colunas = 9;
+
+            var largura = imgLucca1.width / colunas;
+            var altura = imgLucca1.height / linhas;
+
+            var queroLinha = 0;
+            var queroColuna = 0;
+
+            var x = largura * queroColuna;
+            var y = altura * queroLinha;
+
+            context.drawImage(
+                imgLucca1,
+                x,
+                y,
+                largura,
+                altura,
+                50,
+                100,
+                largura,
+                altura
+            );
+        };
+
+        // SEGUNDA SPRITE
+        var imgLucca2 = new Image();
+        imgLucca2.src = 'lucca2.png';
+
+        imgLucca2.onload = function() {
+
+            var linhas = 2;
+            var colunas = 9;
+
+            var largura = imgLucca2.width / colunas;
+            var altura = imgLucca2.height / linhas;
+
+            var queroLinha = 0;
+            var queroColuna = 0;
+
+            var x = largura * queroColuna;
+            var y = altura * queroLinha;
+
+            context.drawImage(
+                imgLucca2,
+                x,
+                y,
+                largura,
+                altura,
+                250,
+                100,
+                largura,
+                altura
+            );
+        };
+
+    </script>
+
+</body>
+
+</html>
